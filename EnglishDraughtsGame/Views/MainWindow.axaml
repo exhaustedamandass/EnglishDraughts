@@ -1,0 +1,86 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:EnglishDraughtsGame.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:EnglishDraughtsGame.Controls"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="EnglishDraughtsGame.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="EnglishDraughtsGame">
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!-- Left column: game board takes available space -->
+            <ColumnDefinition Width="*" />
+            <!-- Right column: controls and results -->
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <!-- LEFT COLUMN: Game Board -->
+        <Grid Grid.Column="0">
+            <controls:BoardControl Game="{Binding Game}" 
+                                   MoveCompleted="OnMoveCompleted" 
+                                   MoveCount="{Binding MoveCount, Mode=TwoWay}" />
+        </Grid>
+        
+        <!-- RIGHT COLUMN: Other controls and ScrollViewer -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <!-- Top row: choose side controls -->
+                <RowDefinition Height="Auto"/>
+                <!-- Middle row: ScrollViewer for results -->
+                <RowDefinition Height="*"/>
+                <!-- Bottom row: Bot time controls -->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Top Controls: Choose Side -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+                <TextBlock Text="You play as: " 
+                           VerticalAlignment="Center" 
+                           Margin="0,0,10,0"/>
+                <ComboBox ItemsSource="{Binding PlayerOptions}"
+                          SelectedItem="{Binding UserPlayer, Mode=TwoWay}"
+                          Width="80"
+                          VerticalAlignment="Center"/>
+                <Button Command="{Binding GetAiHintCommand}"
+                        Content="Get Hint" />
+            </StackPanel>
+            
+            <!-- Middle: ScrollViewer with ShellCommandResults -->
+            <ScrollViewer Grid.Row="1"
+                          x:Name="ResultsScrollViewer"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled"
+                          Margin="5">
+                <ItemsControl Margin="5"
+                              ItemsSource="{Binding AppLog}">
+                </ItemsControl>
+            </ScrollViewer>
+            
+            <!-- Bottom Controls: Bot Time -->
+            <Grid Grid.Row="2" ColumnDefinitions="Auto,Auto,Auto" Margin="10">
+                <TextBlock Text="Bot Time (ms):"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"/>
+                <TextBox Grid.Column="1" 
+                         Width="80"
+                         Text="{Binding BotTimeLimitMs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,10,0"
+                         VerticalAlignment="Center"/>
+                <Slider Grid.Column="2"
+                        Minimum="100"
+                        Maximum="10000"
+                        SmallChange="100"
+                        LargeChange="1000"
+                        Value="{Binding BotTimeLimitMs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Width="200"
+                        VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
