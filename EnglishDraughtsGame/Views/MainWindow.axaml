@@ -48,7 +48,8 @@
                           Width="80"
                           VerticalAlignment="Center"/>
                 <Button Command="{Binding GetAiHintCommand}"
-                        Content="Get Hint" />
+                        Content="Get Hint" 
+                        Margin="10,0,0,0"/>
             </StackPanel>
             
             <!-- Middle: ScrollViewer with ShellCommandResults -->
