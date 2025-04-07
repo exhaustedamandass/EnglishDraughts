@@ -4,7 +4,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
-using DraughtsGame.DataModels;
+using EnglishDraughtsGame.Models;
 
 namespace EnglishDraughtsGame.Controls;
 

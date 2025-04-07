@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using DraughtsGame.DataModels;
+using EnglishDraughtsGame.Models;
 
 namespace EnglishDraughtsGame.Helpers;
 

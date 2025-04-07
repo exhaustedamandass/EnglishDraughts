@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DraughtsGame.DataModels;
+namespace EnglishDraughtsGame.Models;
 
 public class Move
 {

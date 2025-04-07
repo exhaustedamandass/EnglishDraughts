@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
-using DraughtsGame.DataModels;
 using EnglishDraughtsGame.Helpers;
+using EnglishDraughtsGame.Models;
 using OpenAI.Chat;
 using ReactiveUI;
 
@@ -48,7 +48,7 @@ public partial class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         // Create the OpenAI client with the chosen model name.
-        _openAiClient = new ChatClient(model: ModelName, Environment.GetEnvironmentVariable("OPEN_AI_API_KEY"));
+        _openAiClient = new ChatClient(model: ModelName, Environment.GetEnvironmentVariable("OPEN_AI_API_KEY") ?? "ENV_VAR_NOT_SET");
         
         // Initialize game objects.
         _game = new Game();

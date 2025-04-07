@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DraughtsGame.DataModels;
+namespace EnglishDraughtsGame.Models;
 
 public class Board
 {
@@ -237,5 +237,4 @@ public class Board
         }
         return newBoard;
     }
-
 }

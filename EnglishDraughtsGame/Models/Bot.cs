@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DraughtsGame.DataModels;
+namespace EnglishDraughtsGame.Models;
 
 public class Bot
 {
@@ -32,8 +32,8 @@ public class Bot
             CancellationToken token = cancellationTokenSource.Token;
 
             Move bestMove = null;
-            int bestScore = int.MinValue;
-            int depth = 1;
+            var bestScore = int.MinValue;
+            var depth = 1;
 
             // Iterative deepening loop.
             while (!token.IsCancellationRequested)

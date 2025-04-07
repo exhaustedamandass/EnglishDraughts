@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishDraughtsGame", "EnglishDraughtsGame\EnglishDraughtsGame.csproj", "{66F07F57-BC6A-4D91-B181-1207CCF22BBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishDraughtsGameTest", "EnglishDraughtsGameTest\EnglishDraughtsGameTest.csproj", "{FB6C9645-C8E5-4EB2-9073-76BB5FB8F6AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishDraughtsGame.Test", "EnglishDraughtsGame.Test\EnglishDraughtsGame.Test.csproj", "{FB6C9645-C8E5-4EB2-9073-76BB5FB8F6AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

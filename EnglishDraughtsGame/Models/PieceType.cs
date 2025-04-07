@@ -1,4 +1,4 @@
-namespace DraughtsGame.DataModels;
+namespace EnglishDraughtsGame.Models;
 
 public enum PieceType
 {

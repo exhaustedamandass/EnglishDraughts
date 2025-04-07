@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
 
-namespace DraughtsGame.DataModels;
+namespace EnglishDraughtsGame.Models;
 
 public class Game
 {
     public Board Board { get; private set; }
-    public Player CurrentPlayer { get; private set; }
+    public Player CurrentPlayer { get; set; }
     public bool IsGameOver { get; private set; }
 
     public Game()
